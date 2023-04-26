@@ -5,15 +5,16 @@
  *
  * @ap: list containing a single character
  *
- * Return: Pointer to the converted string
+ * Return: Pointer to the dynamically allocated string
  */
 char *convert_char(va_list ap)
 {
-    static char s[2];
+	char *s = malloc(2 * sizeof(char));
 
-    s[0] = va_arg(ap, int);
-    s[1] = '\0';
-
-    return (s);
+	if (!s)
+		return (NULL);
+	s[0] = va_arg(ap, int);
+	s[1] = '\0';
+	return (s);
 }
 
