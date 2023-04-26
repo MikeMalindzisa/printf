@@ -29,14 +29,14 @@ return (i);
 }
 
 /**
-* reverse_string - Reverses the characters
-* in a string.
-* @s: the string to reverse
-*/
+ * reverse_string - Reverses the characters
+ * in a string.
+ * @s: the string to reverse
+ */
 void reverse_string(char *s)
 {
-int i, j;
-char temp;
+	int i, j;
+	char temp;
 
 for (i = 0, j = strlen(s) - 1; i < j; i++, j--)
 {
@@ -77,3 +77,4 @@ num /= 10;
 
 return (len);
 }
+

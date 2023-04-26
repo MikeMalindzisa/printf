@@ -22,3 +22,4 @@ va_end(ap);
 
 return (count);
 }
+

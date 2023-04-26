@@ -2,6 +2,13 @@
 #include "convertors/convert_char.c"
 #include "convertors/convert_str.c"
 #include "convertors/convert_integer.c"
+#include "convertors/convert_binary.c"
+#include "convertors/convert_unsigned.c"
+#include "convertors/convert_octal.c"
+#include "convertors/convert_hex.c"
+#include "convertors/convert_misc.c"
+#include "convertors/convert_to_base.c"
+#include "convertors/convert_reverse.c"
 /**
 * handler - function pointer to corresponding function
 * @format: conversion specifier
@@ -18,6 +25,15 @@ converter_t converter[] = {
 {"s", convert_str},
 {"d", convert_integer},
 {"i", convert_integer},
+{"b", convert_binary},
+{"u", convert_unsigned},
+{"o", convert_octal},
+{"x", convert_hex},
+{"X", convert_hex_upper},
+{"S", convert_non_printable},
+{"p", convert_address},
+{"r", convert_rev},
+{"R", convert_rot13},
 {NULL, NULL}
 };
 
@@ -29,6 +45,8 @@ output = converter[i].convert(ap);
 break;
 }
 }
-
+if (output == NULL)
+	output = handle_unknown(format, ap);
 return (output);
 }
+
